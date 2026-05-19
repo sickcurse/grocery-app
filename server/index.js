@@ -10,8 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://admin:lzlkMN3Rip5gmsVX@cluster0.8qhio3m.mongodb.net/grocery-app')
-  .then(() => console.log('Connected to MongoDB'))
+mongoose.connect(process.env.MONGODB_URI)
   .catch((err) => console.log(err));
 
 app.use('/items', itemRoutes);
