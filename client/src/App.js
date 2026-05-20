@@ -10,14 +10,14 @@ function App() {
   }, []);
 
   const fetchItems = async () => {
-    const response = await fetch('https://grocery-app-backend-cgf6.onrender.com');
+    const response = await fetch('https://grocery-app-backend-cgf6.onrender.com/items');
     const data = await response.json();
     setItems(data);
   };
-
+  
   const addItem = async () => {
     if (input.trim() === '') return;
-    const response = await fetch('https://grocery-app-backend-cgf6.onrender.com', {
+    const response = await fetch('https://grocery-app-backend-cgf6.onrender.com/items', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: input })
