@@ -10,14 +10,14 @@ function App() {
   }, []);
 
   const fetchItems = async () => {
-    const response = await fetch('http://localhost:5000/items');
+    const response = await fetch('https://grocery-app-backend-cgf6.onrender.com');
     const data = await response.json();
     setItems(data);
   };
 
   const addItem = async () => {
     if (input.trim() === '') return;
-    const response = await fetch('http://localhost:5000/items', {
+    const response = await fetch('https://grocery-app-backend-cgf6.onrender.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: input })
@@ -28,7 +28,7 @@ function App() {
   };
 
   const deleteItem = async (id) => {
-    await fetch(`http://localhost:5000/items/${id}`, {
+    await fetch(`https://grocery-app-backend-cgf6.onrender.com/items/${id}`, {
       method: 'DELETE'
     });
     setItems(items.filter(item => item._id !== id));
